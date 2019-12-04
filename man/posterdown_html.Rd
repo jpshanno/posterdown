@@ -4,6 +4,7 @@
 \alias{posterdown_html}
 \alias{posterdown_betterland}
 \alias{posterdown_betterport}
+\alias{posterdown_hybrid}
 \title{Posterdown HTML format (using pagedown::poster_relaxed)}
 \usage{
 posterdown_html(..., template = find_resource("posterdown_html",
@@ -16,6 +17,9 @@ posterdown_betterland(...,
 posterdown_betterport(...,
   template = find_resource("posterdown_betterport", "template.html"),
   css = NULL)
+
+posterdown_hybrid(..., template = find_resource("posterdown_hybrid",
+  "template.html"), css = NULL)
 }
 \arguments{
 \item{...}{Additional arguments to \code{rmarkdown::html_document}}
@@ -34,6 +38,8 @@ BetterPoster movement from twitter.
 
 The output format \code{poster_betterport()} mimics the style of the
 BetterPoster movement from twitter.
+
+The output format \code{poster_hybrid()} adds more options to \code{poster_html()} and implements a 'Major Findings' section which takes the form of a scaled-down main section from \code{poster_betterland()}.
 }
 \examples{
 \donttest{

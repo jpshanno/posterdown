@@ -38,3 +38,12 @@ posterdown_betterport <- function(...,
                                   css = NULL) {
   pagedown::poster_relaxed(..., css = css, template = template)
 }
+
+#' @description The output format `poster_hybrid()` adds more options to `poster_html()` and implements a 'Major Findings' section which takes the form of a scaled-down main section from `poster_betterland()`.
+#' @rdname posterdown_html
+#' @export
+posterdown_hybrid <- function(...,
+                                  template = find_resource("posterdown_hybrid", "template.html"),
+                                  css = NULL) {
+  pagedown::poster_relaxed(..., css = css, template = template)
+}

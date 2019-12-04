@@ -221,7 +221,7 @@ text-align: left;
 }
 .main {
 width: calc($if(poster_width)$$poster_width$$else$46in$endif$ * $if(main_width)$$main_width$$else$0.5$endif$);
-height: $if(poster_height)$$poster_height$$else$32in$endif$;
+height: calc($if(poster_height)$$poster_height$$else$32in$endif$ * $if(main_height)$$main_height$$else$1$endif$);
 position: absolute;
 $if(main_width)$
 margin-left: calc($if(poster_width)$$poster_width$$else$46in$endif$ * ((1 - $main_width$) / 2));
