@@ -189,7 +189,7 @@ margin-bottom: 0;
   padding: 0.2em;
 }
 .poster_body h1 {
-text-align: center;
+text-align: $if(sectitle_align)$$sectitle_align$$else$center$endif$;
 color: $if(sectitle_textcol)$$sectitle_textcol$$else$#FFFFFF$endif$;
 font-size: $if(sectitle_textsize)$$sectitle_textsize$$else$65pt$endif$;
 border: $if(sectitle_borderwidth)$$sectitle_borderwidth$$else$2mm$endif$ solid $if(sectitle_bordercol)$$sectitle_bordercol$$else$$if(primary_colour)$$primary_colour$$else$#0b4545$endif$$endif$;
