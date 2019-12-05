@@ -92,6 +92,7 @@ justify-content: center;
 text-align: $if(title_align)$$title_align$$else$$if$center$endif$;
 position: relative;
 float: left;
+left: 0.5%;
 width: 80%;
 height: 100%;
 color: $if(title_textcol)$$title_textcol$$else$#FFFFFF$endif$;
@@ -137,9 +138,9 @@ column-fill: auto;
 -webkit-column-rule-width: $if(columnline_width)$$columnline_width$$else$1mm$endif$;
 -moz-column-rule-width: $if(columnline_width)$$columnline_width$$else$1mm$endif$;
 column-rule-width: $if(columnline_width)$$columnline_width$$else$1mm$endif$;
--webkit-column-rule-style: $if(columnline_style)$$columnline_style$$else$dashed$endif$;
--moz-column-rule-style: $if(columnline_style)$$columnline_style$$else$dashed$endif$;
-column-rule-style: $if(columnline_style)$$columnline_style$$else$dashed$endif$;
+-webkit-column-rule-style: $if(columnline_style)$$columnline_style$$else$none$endif$;
+-moz-column-rule-style: $if(columnline_style)$$columnline_style$$else$none$endif$;
+column-rule-style: $if(columnline_style)$$columnline_style$$else$none$endif$;
 -webkit-column-rule-color: $if(columnline_col)$$columnline_col$$else$$if(primary_colour)$$primary_colour$$else$#0b4545$endif$$endif$;
 -moz-column-rule-color: $if(columnline_col)$$columnline_col$$else$$if(primary_colour)$$primary_colour$$else$#0b4545$endif$$endif$;
 column-rule-color: $if(columnline_col)$$columnline_col$$else$$if(primary_colour)$$primary_colour$$else$#0b4545$endif$$endif$;
@@ -188,7 +189,7 @@ margin-bottom: 0;
 .section {
   padding: 0.2em;
 }
-.poster_body h1 {
+.poster_body h2 {
 text-align: $if(sectitle_align)$$sectitle_align$$else$center$endif$;
 color: $if(sectitle_textcol)$$sectitle_textcol$$else$#FFFFFF$endif$;
 font-size: $if(sectitle_textsize)$$sectitle_textsize$$else$65pt$endif$;
@@ -199,7 +200,6 @@ margin-top: 2mm;
 margin-bottom: 2mm;
 font-weight: normal;
 }
-.poster_body h2 {
 color: $if(sectitle2_textcol)$$sectitle2_textcol$$else$#000000$endif$;
 font-size: $if(sectitle2_textsize)$$sectitle2_textsize$$else$40pt$endif$;
 padding-left: 4mm;
@@ -297,6 +297,39 @@ font-size: 20pt;
 .orcid img {
   width: 1em;
 }
+#major-finding{
+  background-color: $if(major_colour)$$major_colour$$else$$if(primary_colour)$$primary_colour$$else$#0b4545$endif$$endif$;
+  color: $if(major_fontcol)$$major_fontcol$$else$#FFFFFF$endif$;
+}
+
+#major-finding > h1{
+  font-style: italic;
+}
+
+#major-finding > p {
+  font-size: $if(major_textsize)$$major_textsize$$else$62pt$endif$;
+  color: $if(major_fontcol)$$major_fontcol$$else$#FFFFFF$endif$;
+  line-height: 1;
+  text-align: left;
+}
+
+#basic-sections > h1{
+  display: none;
+}
+
+#content {
+  column-span: $if(column_numbers)$calc(column_numbers - 1)$else$2$endif$;
+  overflow: show;
+}
+
+#content > h1{
+  display: none;
+}
+
+p {
+  line-height: 150%;
+}
+
 </style>
 $if(custom_css)$
 <link rel="stylesheet" href=$custom_css$>
