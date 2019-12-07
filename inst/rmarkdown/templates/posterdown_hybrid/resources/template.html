@@ -16,12 +16,14 @@ Font-awesome icons ie github or twitter
 <!--
 Google fonts api stuff
 -->
+
 $if(font_family)$
 <link href='https://fonts.googleapis.com/css?family=$font_family$' rel='stylesheet'>
 $endif$
 $if(titletext_fontfamily)$
 <link href='https://fonts.googleapis.com/css?family=$titletext_fontfamily$' rel='stylesheet'>
 $endif$
+
 
 $for(author-meta)$<meta name="author" content="$author-meta$" />$endfor$
 $if(date-meta)$<meta name="date" content="$date-meta$" />$endif$
@@ -64,15 +66,20 @@ padding: 0cm;
 }
 .title_container {
 width: $if(titlebox_borderwidth)$calc(100% - $titlebox_borderwidth$ - $titlebox_borderwidth$)$else$100%$endif$;
-height: $if(titlebox_borderwidth)$calc(15% - $titlebox_borderwidth$ - $titlebox_borderwidth$)$else$15%$endif$;
+height: $if(titlebox_borderwidth)$calc(10% - $titlebox_borderwidth$ - $titlebox_borderwidth$)$else$10%$endif$;
+padding-bottom: 0.5em;
+padding-top: 0.5in;
 overflow: hidden;
+margin-left: auto;
+margin-right: auto;
+float: none;
 background-color: $if(primary_colour)$$primary_colour$$else$#0b4545$endif$;
 border: $if(titlebox_borderwidth)$$titlebox_borderwidth$$else$0$endif$ solid $if(titlebox_bordercol)$$titlebox_bordercol$$else$$if(primary_colour)$$primary_colour$$else$#0b4545$endif$
 $endif$;
 }
 .logo_left {
 float: left;
-width: 10%;
+width: 17.5%;
 height: 100%;
 background-color: $if(primary_colour)$$primary_colour$$else$#0b4545$endif$;
 display: flex;
@@ -81,25 +88,28 @@ justify-content: center;
 }
 .logo_right {
 float: right;
-width: 10%;
+width: 17.5%;
 height: 100%;
 background-color: $if(primary_colour)$$primary_colour$$else$#0b4545$endif$;
 display: flex;
 align-items: center;
 justify-content: center;
 }
+
 .poster_title {
-text-align: $if(title_align)$$title_align$$else$$if$center$endif$;
+text-align: center;
 position: relative;
 float: left;
-left: 0.5%;
-width: 80%;
+width: 65%;
 height: 100%;
+margin-left: auto;
+margin-right: auto;
 color: $if(title_textcol)$$title_textcol$$else$#FFFFFF$endif$;
 top: 50%;
 transform: translateY(-50%);
 -webkit-transform: translateY(-50%);
 }
+
 #title {
 font-family: $if(titletext_fontfamily)$$titletext_fontfamily$$else$$if(font_family)$$font_family$$else$Palatino$endif$$endif$;
 }
@@ -128,6 +138,11 @@ a:active {
 color: $if(link_col)$$link_col$$else$$if(accent_colour)$$accent_colour$$else$#008080$endif$$endif$;
 text-decoration: none;
 }
+.twitter, i {
+color: $if(affiliation_textcol)$$affiliation_textcol$$else$#00000060$endif$;
+font-size: 35px;
+text-decoration: none;
+}
 .poster_body {
 -webkit-column-count: $if(column_numbers)$$column_numbers$$else$3$endif$; /* Chrome, Safari, Opera */
 -moz-column-count: $if(column_numbers)$$column_numbers$$else$3$endif$; /* Firefox */
@@ -145,8 +160,8 @@ column-rule-style: $if(columnline_style)$$columnline_style$$else$none$endif$;
 -moz-column-rule-color: $if(columnline_col)$$columnline_col$$else$$if(primary_colour)$$primary_colour$$else$#0b4545$endif$$endif$;
 column-rule-color: $if(columnline_col)$$columnline_col$$else$$if(primary_colour)$$primary_colour$$else$#0b4545$endif$$endif$;
 column-gap: 1em;
-padding-left: 0.5em;
-padding-right: 0.5em;
+padding-left: 0.5in;
+padding-right: 0.5in;
 height: 100%;
 color: $if(body_textcol)$$body_textcol$$else$#000000$endif$
 background-color: $if(body_bgcol)$$body_bgcol$$else$#ffffff$endif$;
@@ -155,7 +170,7 @@ background-color: $if(body_bgcol)$$body_bgcol$$else$#ffffff$endif$;
 font-size: $if(title_textsize)$$title_textsize$$else$75pt$endif$;
 margin: 0;
 border: 0;
-font-weight: normal;
+font-weight: $if(title_fontface)$$title_fontface$$else$normal$endif$;
 }
 .poster_body_wrap{
 width: $if(poster_width)$$poster_width$$else$45in$endif$;
@@ -170,6 +185,9 @@ font-size: $if(author_textsize)$$author_textsize$$else$50pt$endif$;
 margin: 0;
 border: 0;
 font-weight: normal;
+width: $if(title_width)$$title_width$$else$100%$endif$;
+margin-left:auto;
+margin-right:auto;
 }
 .poster_title h3 > sup {
   font-size: 35pt;
@@ -177,10 +195,11 @@ font-weight: normal;
 }
 .poster_title h5 {
 color: $if(affiliation_textcol)$$affiliation_textcol$$else$#FFFFFF$endif$;
-font-size: $if(affiliation_textsize)$$affiliation_texsize$$else$35pt$endif$;
+font-size: $if(affiliation_textsize)$$affiliation_textsize$$else$35pt$endif$;
 margin: 0;
 border: 0;
 font-weight: normal;
+width: $if(affiliation_width)$$affiliation_width$$else$100%$endif$;
 }
 img {
 margin-top: 0;
@@ -292,7 +311,9 @@ margin-right: 4mm;
 margin-left: 4mm;
 }
 .references p {
-font-size: 20pt;
+display: none;
+font-size: 24pt;
+line-height: 100%;
 }
 .orcid img {
   width: 1em;
@@ -309,7 +330,7 @@ font-size: 20pt;
 #major-finding > p {
   font-size: $if(major_textsize)$$major_textsize$$else$62pt$endif$;
   color: $if(major_fontcol)$$major_fontcol$$else$#FFFFFF$endif$;
-  line-height: 1;
+  line-height: 1.25;
   text-align: left;
 }
 
@@ -330,6 +351,16 @@ p {
   line-height: 150%;
 }
 
+.contact_info {
+color: $if(author_textcol)$$author_textcol$$else$$if(secondary_colour)$$secondary_colour$$else$#ffffff$endif$$endif$;
+font-size: $if(affiliation_textsize)$$affiliation_textsize$$else$50pt$endif$;
+margin: 0;
+border: 0;
+font-weight: normal;
+float:left
+font-align: left;
+}
+
 </style>
 $if(custom_css)$
 <link rel="stylesheet" href=$custom_css$>
@@ -342,11 +373,11 @@ $include-before$
 $endfor$
 
 <div class="poster_wrap">
-<div class="title_container">
+<div class="title_container" style="width:100%; margin-left:auto; margin-right:auto;">
 <!-- Left Logo  -->
 <div class="logo_left">
 $if(logoleft_name)$
-<img src= '$logoleft_name$' style="width: 80%">
+<img src= '$logoleft_name$' style="height: 100%">
 $endif$
 </div>
 <!-- Poster Title -->
@@ -359,6 +390,9 @@ $if(affiliation)$<h5 id="affiliation">$for(affiliation)$<sup>$affiliation.num$</
 <div class="logo_right">
 $if(logoright_name)$
 <img src=$logoright_name$ style="width: 80%">
+$endif$
+$if(contact_info)$
+<h3 class = "contact_info">$contact_info$</h3>
 $endif$
 </div>
 </div>
